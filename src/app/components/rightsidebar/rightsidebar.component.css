@@ -3,9 +3,35 @@
 }
 
 
-.team-member{
+/* .team-member{
     line-height: 20px;
 }
 .teammate{
     margin-bottom: 5px;
+} */
+
+.addMargin {
+    margin-left: 5px;
+}
+
+.team-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-flex > * {
+    padding: 10px;
+    margin: 4px;
+}
+
+.team-p {
+    font-size: 15px;
+}
+
+.team-flex img {
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
 }

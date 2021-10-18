@@ -2,6 +2,12 @@
     margin-bottom: 10px;
 }
 
+.bigProfile {
+    width: 30px;
+    border-radius: 50%;
+    height: 30px;
+}
+
 .work{
     
     list-style: none;
@@ -29,4 +35,45 @@
 }
 .imgage img{
     border-radius: 5px;
+}
+
+.work-logo {
+    color: red;
+    margin-right: 12px;
+}
+
+.share-logo {
+    color: green;
+    margin-right: 12px;
+
+}
+
+.shield-logo {
+    color: yellow;
+    margin-right: 12px;
+
+}
+
+.bookmark-logo {
+    margin-right: 12px;
+}
+
+.flex-me {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+}
+
+.flex-me > * {
+    margin: 3px;
+}
+
+.flex-me h3 {
+    font-size: medium;
+}
+
+.addBorder {
+    border-bottom: 3px solid red;
 }
