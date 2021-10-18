@@ -35,3 +35,30 @@
     border-radius: 50%;
     height: 50px;
 }
+
+.roundMe {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #f4f4f4;
+}
+
+.teamheade-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.teamheade-flex h2 {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.roundMe p {
+    width: 100%;
+}
+
