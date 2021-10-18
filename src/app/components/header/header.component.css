@@ -1,11 +1,25 @@
+
+.logo{
+    width: 250px;
+    
+}
+.logo img{
+   width: 150px; 
+   height: 50px;
+  
+    
+}
 .navbar {
+    width: 100%;
     background-color: #047aed;
     color: #fff;
     height: 70px;
+   
 }
 
 .header-container {
-    max-width: 1400px;
+    /* max-width: 1400px; */
+    width: 100%;
     margin: 0 auto;
     overflow: auto;
     padding: 0 40px;
