@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms'
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +13,7 @@ import { BlogsComponent } from './components/blogs/blogs.component';
 import { ButtonComponent } from './components/button/button.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LayoutComponent } from './components/layout/layout.component';
-import { BlogHeaderComponent } from './components/blog-header/blog-header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,14 @@ import { BlogHeaderComponent } from './components/blog-header/blog-header.compon
     RightsidebarComponent,
     BlogsComponent,
     ButtonComponent,
-    LayoutComponent,
-    BlogHeaderComponent
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

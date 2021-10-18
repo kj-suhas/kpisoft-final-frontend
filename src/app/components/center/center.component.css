@@ -77,3 +77,11 @@
 .addBorder {
     border-bottom: 3px solid red;
 }
+
+.center-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}

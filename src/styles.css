@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css';
 
   * {
     box-sizing: border-box;
@@ -20,6 +21,11 @@
   a {
     text-decoration: none;
     color: #333;
+  }
+
+  a:hover {
+    border: none;
+    text-decoration: none;
   }
   
   h1,

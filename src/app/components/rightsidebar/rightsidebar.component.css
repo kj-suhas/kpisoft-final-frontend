@@ -21,6 +21,22 @@
     align-items: center;
 }
 
+.editBtn {
+    padding: 10px;
+}
+
+.btn-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-flex > * {
+    padding: 1px;
+}
+
 .team-flex > * {
     padding: 10px;
     margin: 4px;
