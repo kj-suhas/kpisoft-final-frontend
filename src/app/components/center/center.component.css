@@ -1,0 +1,32 @@
+.custome-card{
+    margin-bottom: 10px;
+}
+
+.work{
+    
+    list-style: none;
+    padding: 0px;
+   
+}
+.work .work-logo{
+    padding-right: 4px;
+}
+.work li{
+    display: inline-block;
+    padding: 0 7px 0 7px;
+    justify-content:space-evenly;
+    
+    
+}
+.things-tk{
+    padding-right: 2px;
+}
+.things-td{
+    padding-left: 2px;
+}
+.things-tk a, .things-td a{
+    text-decoration: none;
+}
+.imgage img{
+    border-radius: 5px;
+}
