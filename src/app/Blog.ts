@@ -1,5 +1,5 @@
 export interface Blog {
     title: string,
-    body: string,
+    description: string,
     image_url: string
 }

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { NgForm } from '@angular/forms';
+import { BlogServiceService } from 'src/app/services/blog-service.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Blog } from 'src/app/Blog';
+
 
 
 @Component({
@@ -10,13 +14,19 @@ import { NgForm } from '@angular/forms';
 })
 export class BlogsComponent implements OnInit {
   faHome:any = faHome;
-
-  constructor() { }
+  blogs:any = [];
+  deleteBlog:any;
+  editBlog:any;
+  constructor(private blogService: BlogServiceService) { }
 
   ngOnInit(): void {
+    this.blogService.getBlogs().subscribe((response) => {
+      console.log(response);
+      this.blogs = response;
+    })
   }
 
-  onOpenModal(anime: any, mode: string): void {
+  onOpenModal(blog: any, mode: string): void {
     const container = document.getElementById('main')
     const button = document.createElement('button')
     button.type = 'button'
@@ -27,15 +37,61 @@ export class BlogsComponent implements OnInit {
       button.setAttribute('data-target', '#addBlogModal')
     }
     if(mode === 'edit') {
-      // this.editAnime = anime
+      this.editBlog = blog
       button.setAttribute('data-target', '#editBlogModal')
     }
     if(mode === 'delete') {
-      // this.deleteAnime = anime;
+      this.deleteBlog = blog;
       button.setAttribute('data-target', '#deleteBlogModal')
     }
     container?.appendChild(button)
     button.click()
+  }
+
+  public onAddBlog(addForm: NgForm): void {
+    console.log(addForm.value)
+    document.getElementById('add-blog-form')?.click()
+    this.blogService.addBlog(addForm.value).subscribe((response: any) => {
+      this.blogs.unshift(response)
+      this.blogService.getBlogs().subscribe((response: any) => {
+        this.blogs = response
+        addForm.reset()
+      })
+    },
+    (error: HttpErrorResponse) => {
+      addForm.reset()
+      console.log(error.message)
+    }
+    )
+  }
+
+
+  public onUpdateBlog(blog: Blog): void {
+    console.log(blog)
+    this.blogService.updateBlog(blog).subscribe((response: any) => {
+      console.log(response);
+      this.blogService.getBlogs().subscribe((response) => {
+        this.blogs = response
+      })
+    },
+    (error: HttpErrorResponse) => {
+      console.log(error.message)
+    }
+    )
+  }
+
+  public onDeleteBlog(blog: any): void {
+    console.log(blog)
+    this.blogService.deleteBlog(blog.id).subscribe((response: any) => {
+      console.log(response);
+      this.blogService.getBlogs().subscribe((response) => {
+        this.blogs = response
+      })
+    },
+    (error: HttpErrorResponse) => {
+      console.log(error.message)
+    }
+    )
   }
 
 }
