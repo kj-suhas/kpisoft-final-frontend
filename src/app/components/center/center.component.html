@@ -58,8 +58,8 @@
             <h3>Filter</h3>
         </div>
     </div>
-    <div class="card">
-        <div class="card-body">
+ <div class="card">
+        <!-- <div class="card-body">
             <div class="row ">
                 <div class="col-1">
                    <span><i class="fas fa-user-tie fa-2x"></i></span>
@@ -69,13 +69,7 @@
                    <p class="card-subtitle"> <small>Date</small> </p>
                 </div>    
         </div>
-        <!-- <div class="card custome-card">
 
-            <div class="card-body">
-                <h6 class="card-headder"> hello guys</h6>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, esse fugit itaque iusto dolorum veniam quas reprehenderit. Delectus, obcaecati quasi!</p>
-            </div>
-        </div> -->
         <p class="lead">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, inventore.
         </p>
@@ -84,7 +78,20 @@
         </div>
 
 
-        </div>
+        </div>  -->
+        <section class="blogs">
+            <!-- <h2 class="md text-center my-2">
+                Blogs
+            </h2> -->
+            <div class="container center-grid">
+                <div *ngFor="let blog of centerBlogs" class="blog-card item">
+                    <h4>{{blog.title}}</h4>
+                    <p>{{blog.description}}</p>
+                    <img src="{{blog.img_url}}" alt="">
+                   
+                </div>
+            </div>
+        </section>
     </div>
   
 

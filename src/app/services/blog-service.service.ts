@@ -16,6 +16,8 @@ export class BlogServiceService {
 
   public getBlogs(): Observable<Blog[]> {
     return this.http.get<Blog[]>(`${this.BACKEND_BASE_URL}/all`)
+    // http://localhost:8080/blog/all
+    
   }
 
   public addBlog(blog: Blog): Observable<Blog> {

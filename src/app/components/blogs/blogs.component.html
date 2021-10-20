@@ -3,15 +3,15 @@
 <div class="navbar">
     <div class="container flex">
         <div class="logo">
-            <img src="../../../assets/images/logo/entomo-4.png" alt="logo">
+            <a routerLink=""><img src="../../../assets/images/logo/entomo-4.png" alt="logo"></a>
         </div>
         <!-- <h1 class="logo">ENTOMO</h1> -->
         <nav>
             <ul>
-                <li><a [routerLink]="" (click)="onOpenModal(null, 'add')">Blogs</a></li>
-                <li><a href="#">PhotoGraphy</a></li>
-                <li><a href="#">Arts</a></li>
-                <li><a href="#">Quotes</a></li>
+                <li><a (click)="onOpenModal(null, 'add')">Blogs</a></li>
+                <li><a routerLink="/blogs">PhotoGraphy</a></li>
+                <li><a routerLink="/blogs" href="#">Arts</a></li>
+                <li><a routerLink="/blogs" href="#">Quotes</a></li>
             </ul>
         </nav>
     </div>
@@ -26,8 +26,9 @@
             <p>{{blog.description}}</p>
             <img src="{{blog.img_url}}" alt="">
             <div class="btn-flex">
-                <app-button [ngStyle]="{'margin-top':'10px', 'margin-right': '10px'}" text='Edit' color='grey' (btnClick)="onOpenModal(blog, 'edit')"></app-button>
-                <app-button  [ngStyle]="{'margin-top':'10px'}" text='Delete' color='brown' (btnClick)="onOpenModal(blog, 'delete')"></app-button>
+               <a routerLink=""></a>
+               <app-button [ngStyle]="{'margin-top':'10px', 'margin-right': '10px'}" text='Edit' color='grey' (btnClick)="onOpenModal(blog, 'edit')"></app-button>
+               <app-button  [ngStyle]="{'margin-top':'10px'}" text='Delete' color='brown' (btnClick)="onOpenModal(blog, 'delete')"></app-button>
             </div>
         </div>
     </div>
@@ -62,7 +63,7 @@
             </div>
             <div class="modal-footer">
                <button type="button" id="add-blog-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+               <a routerLink=""><button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button></a>
             </div>
             </form>
          </div>
@@ -100,7 +101,7 @@
                 </div>
                 <div class="modal-footer">
                    <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                   <button (click)="onUpdateBlog(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                   <a routerLink=""><button (click)="onUpdateBlog(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button></a>
                 </div>
              </form>
           </div>
@@ -123,7 +124,7 @@
             <p>Are you sure you want to delete blog <span [ngStyle]="{'color':'red', 'background-color': '#f4f4f4', 'font-weight': 'bold','margin':'7px'}">{{deleteBlog?.title}}</span>?</p>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-               <button class="btn btn-danger" (click)=onDeleteBlog(deleteBlog) data-dismiss="modal">Yes</button>
+               <a routerLink=""><button class="btn btn-danger" (click)=onDeleteBlog(deleteBlog) data-dismiss="modal">Yes</button></a>
             </div>
          </div>
       </div>
