@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { BlogServiceService } from 'src/app/services/blog-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Blog } from 'src/app/Blog';
+import { Router } from '@angular/router';
 
 
 
@@ -17,12 +18,14 @@ export class BlogsComponent implements OnInit {
   blogs:any = [];
   deleteBlog:any;
   editBlog:any;
-  constructor(private blogService: BlogServiceService) { }
+  constructor(private blogService: BlogServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.blogService.getBlogs().subscribe((response) => {
       console.log(response);
-      this.blogs = response;
+      this.blogs = response.sort((a:Blog,b:Blog) => {
+        return b.id - a.id;
+      });
     })
   }
 
@@ -51,10 +54,13 @@ export class BlogsComponent implements OnInit {
   public onAddBlog(addForm: NgForm): void {
     console.log(addForm.value)
     document.getElementById('add-blog-form')?.click()
+    this.router.navigateByUrl('')
     this.blogService.addBlog(addForm.value).subscribe((response: any) => {
       this.blogs.unshift(response)
       this.blogService.getBlogs().subscribe((response: any) => {
-        this.blogs = response
+        this.blogs = response.sort((a:Blog,b:Blog) => {
+          return b.id - a.id;
+        })
         addForm.reset()
       })
     },
@@ -71,7 +77,9 @@ export class BlogsComponent implements OnInit {
     this.blogService.updateBlog(blog).subscribe((response: any) => {
       console.log(response);
       this.blogService.getBlogs().subscribe((response) => {
-        this.blogs = response
+        this.blogs = response.sort((a:Blog, b:Blog) => {
+          return b.id - a.id;
+        })
       })
     },
     (error: HttpErrorResponse) => {
@@ -85,7 +93,9 @@ export class BlogsComponent implements OnInit {
     this.blogService.deleteBlog(blog.id).subscribe((response: any) => {
       console.log(response);
       this.blogService.getBlogs().subscribe((response) => {
-        this.blogs = response
+        this.blogs = response.sort((a:Blog, b:Blog) => {
+          return b.id - a.id;
+        })
       })
     },
     (error: HttpErrorResponse) => {

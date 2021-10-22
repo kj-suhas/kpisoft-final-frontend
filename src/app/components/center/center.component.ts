@@ -18,14 +18,10 @@ export class CenterComponent implements OnInit {
   ngOnInit(): void {
     this.blogService.getBlogs().subscribe((response) => {
       console.log(response)
-      this.centerBlogs = response.reverse()
-      // this.centerBlogs[0] = response[response.length - 1];
-      // response.map((blog, index, array) => {
-      //   if(index === (response.length-1)) {
-      //     this.centerBlogs[0] = response[response.length - 1];
-      //   } else {
-      //     this.centerBlogs[index] = response[index];
-      //   }
+      this.centerBlogs = response.sort((a, b) => {
+        return b.id - a.id;
+      })
+      console.log(this.centerBlogs)
       })
     }
 }

@@ -6,7 +6,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 
 const routes: Routes = [
   {path: '', component: LayoutComponent},
-  {path: 'blogs', component: BlogsComponent},
+  {path: 'blogs', component: BlogsComponent}
 ];
 
 @NgModule({
